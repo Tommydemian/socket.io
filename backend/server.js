@@ -4,7 +4,11 @@
 
 // El server que creas con express y el listener de socket.io => Son algo # de lo que harías normalmente con express
  const server = require('http').createServer(app) // Init socket.io server
- const io = require('socket.io')(server);
+ const io = require('socket.io')(server, {
+     cors:{
+         origin:'*'
+     }
+ });
 
  io.on('connection', (socket)=>{  //Event => 'connection'
     console.log('what is socket:', socket)
